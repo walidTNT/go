@@ -1,7 +1,10 @@
 package main
 
 // les variables
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 // Definition d'une variable statique
 var prenom string
@@ -39,4 +42,15 @@ func main() {
 
 	a, b, c := 1, 2, "hello"
 	fmt.Println(a, b, c)
+
+	// Gestion des erreurs en retour de fonction
+	n, err := fmt.Print("Super Toto\n")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(n)
+
+	nb, _ := fmt.Println("test")
+	fmt.Println(nb)
 }
