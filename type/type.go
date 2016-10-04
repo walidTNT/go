@@ -1,11 +1,34 @@
 // type/type.go
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
+
+// string
+// bool
+// int
+
+// Str is a string
+type Str string
+
+// Print is a printer of Str
+func (s Str) Printer() {
+	fmt.Println(s)
+}
 
 // Les entiers, byte, flottants, ...
 // power mode
 func main() {
+	var s Str
+	var s2 string
+	s = "My Str"
+	s2 = "Test string"
+	fmt.Println(s + Str(s2))
+
+	s.Printer()
+
 	var a uint8
 	var b int
 
@@ -42,4 +65,11 @@ func main() {
 	message := "à bientôt"
 	fmt.Println(len([]rune(message)))
 
+	fmt.Println("Show type")
+
+	// Première méthode
+	fmt.Printf("Type: %T\n", message)
+
+	// Deuxième méthode
+	fmt.Println(reflect.TypeOf(message))
 }
